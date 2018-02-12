@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core">  
+    <h:head>
+      <title>GoGo Limo</title>
+      <style type="text/css">
+        h2 {color: white; background-color: #1db140}
+      </style>
+      <link href="main.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    
+    <h:body>
+      <div id="outer">
+        <h1>
+          <a href="Login.xhtml">
+            <h:graphicImage url="/images/LimoLogo.jpg" alt="GoGo Limo"/>
+          </a>
+        </h1>
+      </div>
+
+      <div id="inner">
+        <h2>Changes made to Drop off Reservation</h2>
+        Thank you. The following changes have been made...
+        
+        <h2>New drop off date:</h2>
+        <p><h:outputText value = "#{reservationDrop.toString()}" /><br/></p> 
+        <p><h:outputText value = "#{reservationDrop.idString()}" /><br/></p>
+        <p><h:outputLink value="Navigation01.xhtml">Return to Navigation Screen when Ready</h:outputLink></p>
+      </div>
+    </h:body>
+</html>

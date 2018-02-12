@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>GoGo Limo</title>
+        <style type="text/css">
+        h2 {color: white; background-color: #1db140}
+        </style>
+        <link href="main.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+       <div id="outer">
+           <h1>
+               <a href="Login.xhtml">
+                   <h:graphicImage url="/images/LimoLogo.jpg" alt="GoGo Limo"/>
+               </a>
+           </h1>
+       </div>
+ 
+      <div id="inner"> 
+        <h2>Create Your Log-in ID and Password</h2>
+        <h:messages style="color:red;font-weight:bold;"></h:messages>
+        <h:form>
+        <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+            <h:outputText value="Customer ID (Use Email Address)"></h:outputText>
+            <h:inputText label="customerID" value="#{signUp.customerID}" required="true">
+                <f:validateRequired></f:validateRequired>
+            </h:inputText>
+            <h:outputText value="Password"></h:outputText>
+            <h:inputSecret label="password" value="#{signUp.password}" required="true">
+                <f:validateRequired></f:validateRequired>
+                <f:validateLength minimum="4" maximum="100"></f:validateLength>
+            </h:inputSecret>
+            <h:commandButton action="#{signUpSave.saveInfo}" value="Save"></h:commandButton>
+        </h:panelGrid>
+        </h:form>
+      </div>
+    </h:body>
+</html>
+

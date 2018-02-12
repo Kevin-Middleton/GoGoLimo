@@ -1,0 +1,44 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html 
+    xmlns="http://www.w3.org/1999/xhtml"  
+    xmlns:h="http://java.sun.com/jsf/html"  
+    xmlns:f="http://java.sun.com/jsf/core">  
+  
+    <h:head>
+        <title>GoGo Limo</title>
+        <style type="text/css">
+        h2 {color: white; background-color: #1db140}
+        </style>
+        <link href="main.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+       <div id="outer">
+           <h1>
+               <a href="Login.xhtml">
+                   <h:graphicImage url="/images/LimoLogo.jpg" alt="GoGo Limo"/>
+               </a>
+           </h1>
+       </div>
+ 
+      <div id="inner">   
+<h2>Choose an option</h2>
+<table>  
+<tr>  
+    <td><h:outputText value="Choose your product" /></td>
+    <td></td>
+    <td><h:outputLink value="Navigation.xhtml"> Choose a Product </h:outputLink></td>
+</tr>   
+<tr>
+    <td><h:outputText value="Manage your order" /></td>
+    <td></td>
+    <td><h:outputLink value="DropSearch.xhtml">Check You Drop off Reservations</h:outputLink></td>  
+</tr>  
+<tr>
+    <td></td> <td></td> 
+    <td><h:outputLink value="PickSearch.xhtml">Check You Pick up Reservations</h:outputLink></td>
+</tr>
+</table>
+      </div>
+</h:body>  
+</html>

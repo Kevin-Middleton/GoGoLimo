@@ -1,0 +1,54 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>GoGo Limo</title>
+        <style type="text/css">
+        h2 {color: white; background-color: #1db140}
+        </style>
+        <link href="main.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    <h:body>
+       <div id="outer">
+           <h1>
+               <a href="Login.xhtml">
+                   <h:graphicImage url="/images/LimoLogo.jpg" alt="GoGo Limo"/>
+               </a>
+           </h1>
+       </div>
+ 
+      <div id="inner"> 
+        <h2>Registration information</h2>
+        <h:messages style="color:red;font-weight:bold;"></h:messages>
+        <h:form>
+        <h:panelGrid columns="2" columnClasses="rightAlign,leftAlign">
+            <h:outputText value="First Name"/>       
+            <h:inputText label="first" value="#{customer.firstName}" id="first" required="true"><f:validateRequired></f:validateRequired>
+            <f:ajax event="keyup" execute="last" render="fullname"/>
+            </h:inputText>  
+            <h:outputText value="Last Name"/>
+            <h:inputText label="last" value="#{customer.lastName}" id="last" required="true"><f:validateRequired></f:validateRequired>    
+            <f:ajax event="keyup" execute="first" render="fullname"/>
+            </h:inputText>
+            <h:outputText value="Full name"/>
+            <h:outputText id="fullname" value= "#{customer.firstName} #{customer.lastName}" ></h:outputText>
+            <h:outputText value="Street Address"></h:outputText>
+            <h:inputText label="street" value="#{customer.street}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:outputText value="City"></h:outputText>
+            <h:inputText label="city" value="#{customer.city}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:outputText value="State"></h:outputText>
+            <h:inputText label="usstate" value="#{customer.usstate}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:outputText value="Zip Code"></h:outputText>
+            <h:inputText label="zipcode" value="#{customer.zipcode}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:outputText value="Phone Number"></h:outputText>
+            <h:inputText label="phone" value="#{customer.phone}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:outputText value="Email Address"></h:outputText>
+            <h:inputText label="email" value="#{customer.email}" required="true"><f:validateRequired></f:validateRequired></h:inputText>
+            <h:commandButton action="#{customerSave.saveInfo}" value="Save"></h:commandButton>
+        </h:panelGrid>
+        </h:form>
+      </div>
+    </h:body>
+</html>

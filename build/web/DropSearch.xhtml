@@ -1,0 +1,67 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>GoGo Limo</title>
+        <style type="text/css">
+        h2 {color: white; background-color: #1db140}
+        </style>
+        <link href="main.css" rel="stylesheet" type="text/css" />
+    </h:head>
+    
+    <h:body>
+      <div id="outer">
+          <h1>
+              <a href="Login.xhtml">
+                  <h:graphicImage url="/images/LimoLogo.jpg" alt="GoGo Limo"/>
+              </a>
+          </h1>
+      </div>
+ 
+      <div id="inner"> 
+      <h2>Reservation Drop Off Info Search</h2>
+      <h:form>
+        <h:panelGrid columns="2">
+            <h:outputText value="Confirm email "/>
+            <h:inputText id="email" value="#{reservationDrop.email}">
+                <f:ajax event="keyup" execute="last" render="datatable"/>
+            </h:inputText>    
+        </h:panelGrid> <br/>
+        <h:dataTable id="datatable" value="#{reserveDropBean.matchingEmail}"
+                var="item" border="3" cellpadding="2" cellspacing="2">
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value="Email"/>
+                </f:facet> 
+                <h:outputText value="#{item.email}"></h:outputText>
+            </h:column>
+        
+            <h:column>
+                <f:facet name="header">
+                    <h:outputText value=" - - - - - Reservation Information - - - - - " />
+                </f:facet> 
+                <h:outputText value="#{item.toString()}" ></h:outputText>
+            </h:column>
+    
+            <h:column>
+              <f:facet name="header">
+                <h:outputText value="Drop-off ID" />
+              </f:facet>
+            <h:outputText value="#{item.id}" ></h:outputText>
+          </h:column>
+        </h:dataTable>
+      </h:form>
+    </div>
+        
+    <h3>Make Changes to Drop off Schedule</h3>
+      <table>  
+        <tr>  
+          <td><h:outputLink value="DropDelete.xhtml"> Delete a drop off Reservation </h:outputLink></td>
+          <td></td>
+          <td><h:outputLink value="DropUpdate.xhtml"> Update a drop off Reservation </h:outputLink></td>  
+        </tr>  
+      </table>
+    </h:body>
+</html>
